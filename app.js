@@ -8,9 +8,14 @@ var usersRouter = require('./routes/users');
 var postRouter = require('./routes/posts');
 var blogRouter = require('./routes/blog');
 
+//Para leer archivos .env
+require('dotenv').config();
+
+//Creacion de app express
 var app = express();
 
-require('dotenv').config();
+//Usar las variables/funciones exportadas de archivo db
+require('./db').conexion();
 
 app.use(logger('dev'));
 app.use(express.json());
