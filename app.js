@@ -9,9 +9,10 @@ var postRouter = require('./routes/posts');
 var blogRouter = require('./routes/blog');
 
 require('dotenv').config();
+
 var app = express();
 
-require('./bd').connect()
+require('./db').conexion();
 
 
 app.use(logger('dev'));
