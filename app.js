@@ -10,15 +10,6 @@ var postRouter = require('./routes/posts');
 var blogRouter = require('./routes/blog');
 var { mainRedirect } = require('./routes/middlewares');
 
-<<<<<<< HEAD
-require('dotenv').config();
-var app = express();
-
-require('./db').conexion();
-
-
-
-=======
 //Para leer archivos .env
 require('dotenv').config();
 
@@ -27,7 +18,6 @@ var app = express();
 
 //Usar las variables/funciones exportadas de archivo db
 require('./db').conexion();
->>>>>>> 0b164999531d9876268a97f544c029cd6c9e8ca2
 
 app.use(cors());
 app.use(logger('dev'));
