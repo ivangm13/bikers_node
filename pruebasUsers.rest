@@ -1,0 +1,51 @@
+GET http://localhost:3000/users
+
+###
+
+//Buscar por nombre
+GET http://localhost:3000/users/jonh
+
+
+###
+
+//Buscar por username
+
+GET http://localhost:3000/users/alias/javiergarcia
+
+###
+
+//Eliminar usuario por id
+DELETE http://localhost:3000/users/6
+
+###
+ //crear usuario
+POST http://localhost:3000/users
+Content-Type: application/json
+
+ {
+     "nombre": "Pepa",
+     "apellidos":"Gonzalez",
+     "username":"pepitogon",
+     "email":"pepito@gmail.com",
+     "password":"123457",
+     "ciudad":"Madrid",
+     "fecha_nacimiento":"1990-11-07",
+     "imagen":"https://i.pinimg.com/originals/b4/a0/b3/b4a0b3c05fc729b0f8a9aeb7f545ad44.jpg"
+ }
+
+ ###
+
+
+ 
+
+
+
+
+
+ 
+
+ 
+
+
+
+ 
