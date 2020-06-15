@@ -9,7 +9,7 @@ const connect = () => {
         database: process.env.DB_DATABASE
     });
     //Para crear variables globales para TODA la app. Usar muy pocas veces
-    global.db = pool;
+    global.bd = pool;
 };
 
 module.exports = {

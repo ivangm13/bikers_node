@@ -8,9 +8,11 @@ var usersRouter = require('./routes/users');
 var postRouter = require('./routes/posts');
 var blogRouter = require('./routes/blog');
 
+require('dotenv').config();
 var app = express();
 
-require('dotenv').config();
+require('./bd').connect()
+
 
 app.use(logger('dev'));
 app.use(express.json());
