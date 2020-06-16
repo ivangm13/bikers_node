@@ -39,12 +39,23 @@ const crearUsuario = ({ nombre, apellidos, username, email, fecha_registro = 0, 
 };
 
 const eliminarUsuario = (pUsuarioId) => {
-    return new Promise((resolve,reject)=>{
-        db.query('delete from usuarios where id = ?',[pUsuarioId],(err,result)=>{
-            if(err) reject(err);
+    return new Promise((resolve, reject) => {
+        db.query('delete from usuarios where id = ?', [pUsuarioId], (err, result) => {
+            if (err) reject(err);
             resolve(result);
         })
     })
+}
+
+const modificarUsuario = (pUsuarioId, { nombre, apellidos, username, email, password, ciudad, fecha_nacimiento, imagen }) => {
+    return new Promise((resolve, reject) => {
+        db.query('update usuarios set nombre =?, apellidos=?,username=?,email=?, password=?,ciudad=?,fecha_nacimiento=?,imagen=? where id=?',
+            [nombre, apellidos, username, email, password, ciudad, fecha_nacimiento, imagen, pUsuarioId],
+            (err, result) => {
+                if (err) reject(err);
+                resolve(result);
+            });
+    });
 }
 
 
@@ -54,5 +65,6 @@ module.exports = {
     getByNombre,
     getByUsername,
     crearUsuario,
-    eliminarUsuario
+    eliminarUsuario,
+    modificarUsuario
 }

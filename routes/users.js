@@ -40,7 +40,7 @@ router.get('/:nombre', async (req, res) => {
 router.post('/', async (req, res) => {
   const result = await User.crearUsuario(req.body);
   if (result['affectedRows'] === 1) {
-    res.json({ success: 'Usuario creado con éxito', usuario })
+    res.json({ success: 'Usuario creado con éxito' })
   } else {
     res.json({error: 'No se ha creado el usuario'})
   }
@@ -53,7 +53,16 @@ router.delete('/:idUsuario',async(req,res)=>{
   }else{
     res.json({error:'No se ha eliminado'})
   }
-})
+});
+
+router.put('/:idUsuario',async(req,res)=>{
+  const result = await User.modificarUsuario(req.params.idUsuario,req.body);
+  if(result['affectedRows']===1){
+    res.json({success:'Usuario actualizado con éxito'});
+  }else{
+    res.json({error:'No se ha podido actualizar'});
+  }
+});
 
 
 
