@@ -1,0 +1,70 @@
+GET http://localhost:3000/api/users
+
+###
+
+//Buscar por nombre
+GET http://localhost:3000/api/users/jonh
+
+
+###
+
+//Buscar por username
+
+GET http://localhost:3000/api/users/alias/javiergarcia
+
+###
+
+//Eliminar usuario por id
+DELETE http://localhost:3000/api/users/9
+
+###
+
+//Modificar usuario
+PUT http://localhost:3000/api/users/8
+Content-Type: application/json
+
+{
+    "nombre": "Juana",
+     "apellidos":"Gonzalez",
+     "username":"juanagonz",
+     "email":"juana@gmail.com",
+     "password":"123457",
+     "ciudad":"Albacete",
+     "fecha_nacimiento":"1990-11-07",
+     "imagen":"https://i.pinimg.com/originals/b4/a0/b3/b4a0b3c05fc729b0f8a9aeb7f545ad44.jpg"
+}
+###
+ //crear usuario
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+ {
+     "nombre": "Pepa",
+     "apellidos":"Gonzalez",
+     "username":"pepitogon",
+     "email":"pepito@gmail.com",
+     "password":"123457",
+     "ciudad":"Madrid",
+     "fecha_nacimiento":"1990-11-07",
+     "imagen":"https://i.pinimg.com/originals/b4/a0/b3/b4a0b3c05fc729b0f8a9aeb7f545ad44.jpg"
+ }
+
+ ###
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+ 
+
+
+
+ 
