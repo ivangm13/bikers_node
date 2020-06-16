@@ -35,21 +35,29 @@ Content-Type: application/json
 }
 ###
  //crear usuario
-POST http://localhost:3000/api/users
+POST http://localhost:3000/api/users   
 Content-Type: application/json
 
  {
-     "nombre": "Pepa",
-     "apellidos":"Gonzalez",
-     "username":"pepitogon",
-     "email":"pepito@gmail.com",
-     "password":"123457",
+     "nombre": "Javiercin",
+     "apellidos":"Garia",
+     "username":"javiercinin",
+     "email":"javiercin@gmail.com",
+     "password":"123453",
      "ciudad":"Madrid",
      "fecha_nacimiento":"1990-11-07",
      "imagen":"https://i.pinimg.com/originals/b4/a0/b3/b4a0b3c05fc729b0f8a9aeb7f545ad44.jpg"
  }
 
- ###
+###
+
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "javito@gmail.com",
+    "password": "12345"
+}
 
 
 

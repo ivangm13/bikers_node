@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const bcrypt = require('bcryptjs');
+var jwt = require('jsonwebtoken');
+var moment = require('moment');
 
 const User = require('../../models/user');
 
@@ -38,6 +41,8 @@ router.get('/:nombre', async (req, res) => {
 
 
 router.post('/', async (req, res) => {
+  req.body.password = bcrypt.hashSync(req.body.password,9);
+ 
   const result = await User.crearUsuario(req.body);
   if (result['affectedRows'] === 1) {
     res.json({ success: 'Usuario creado con éxito' })
@@ -63,6 +68,30 @@ router.put('/:idUsuario', async (req, res) => {
     res.json({ error: 'No se ha podido actualizar' });
   }
 });
+
+router.post('/login', async (req, res) => {
+  const registrado = await User.getByEmail(req.body.email);
+  if (registrado) {
+    //Existe usuario con este email?
+    const iguales = bcrypt.compareSync(req.body.password, registrado.password);
+    if (iguales) {
+      res.json({ success: 'Login correcto', token: createToken(registrado.id) });
+    } else {
+      res.json({ error: 'Email o contraseña incorrecto 2' });
+    }
+  } else {
+    res.json({ error: 'Email o contraseña incorrecto 1' });
+  }
+});
+
+function createToken(pUsuarioId) {
+  const payload = {
+    usuarioId: pUsuarioId,
+    createdAt: moment().unix(),
+    expiredAt: moment().add(15, 'minutes').unix()
+  }
+  return jwt.sign(payload, process.env.SECRET_KEY);
+};
 
 
 

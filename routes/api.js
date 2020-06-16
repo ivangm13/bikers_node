@@ -8,8 +8,8 @@ const apiPostRouter = require('./api/posts');
 
 const { checkToken } = require('./middlewares');
 
-router.use('/users', checkToken, apiUsersRouter);
-router.use('/registrados', apiRegistradosRouter);
+router.use('/users',  apiUsersRouter);
+router.use('/registrados', checkToken, apiRegistradosRouter);
 router.use('/blog', apiBlogRouter);
 router.use('/posts', apiPostRouter);
 
