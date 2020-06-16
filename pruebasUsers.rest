@@ -3,7 +3,7 @@ GET http://localhost:3000/api/users
 ###
 
 //Buscar por nombre
-GET http://localhost:3000/api/users/jonh
+GET https://bikers1.herokuapp.com/api/users/jonh
 
 
 ###
@@ -11,6 +11,9 @@ GET http://localhost:3000/api/users/jonh
 //Buscar por username
 
 GET http://localhost:3000/api/users/alias/javiergarcia
+
+###
+GET https://bikers1.herokuapp.com/api/users/alias/javiergarcia
 
 ###
 
@@ -58,6 +61,8 @@ Content-Type: application/json
     "email": "javito@gmail.com",
     "password": "12345"
 }
+
+###
 
 
 
