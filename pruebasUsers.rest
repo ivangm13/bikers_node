@@ -15,8 +15,24 @@ GET http://localhost:3000/users/alias/javiergarcia
 ###
 
 //Eliminar usuario por id
-DELETE http://localhost:3000/users/6
+DELETE http://localhost:3000/users/9
 
+###
+
+//Modificar usuario
+PUT http://localhost:3000/users/8
+Content-Type: application/json
+
+{
+    "nombre": "Juana",
+     "apellidos":"Gonzalez",
+     "username":"juanagonz",
+     "email":"juana@gmail.com",
+     "password":"123457",
+     "ciudad":"Albacete",
+     "fecha_nacimiento":"1990-11-07",
+     "imagen":"https://i.pinimg.com/originals/b4/a0/b3/b4a0b3c05fc729b0f8a9aeb7f545ad44.jpg"
+}
 ###
  //crear usuario
 POST http://localhost:3000/users
@@ -34,6 +50,9 @@ Content-Type: application/json
  }
 
  ###
+
+
+
 
 
  
