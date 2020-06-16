@@ -5,7 +5,7 @@ const Registrado = require('../models/registrado');
 
 const mainRedirect = (req, res, next) => {
     if (req.url == '/') {
-        res.redirect('/users');
+        res.redirect('/api/users');
     } else {
         next();
     }
