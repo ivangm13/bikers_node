@@ -1,6 +1,4 @@
-
-
-//Queryes necesarias: getAll, getByNombre, getByUsername, Crear, Modificar, Eliminar
+//Queries necesarias: getAll, getByNombre, getByUsername, Crear, Modificar, Eliminar
 const getAll = () => {
     return new Promise((resolve, reject) => {
         db.query('select * from usuarios', (err, rows) => {
