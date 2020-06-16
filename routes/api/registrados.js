@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const moment = require('moment');
 
-const Logeado = require('../models/logeado');
+const Logeado = require('../../models/registrado');
 
 router.post('/registro', async (req, res) => {
 

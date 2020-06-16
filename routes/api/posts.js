@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Post = require('../models/post');
+var Post = require('../../models/post');
 
 /* MOSTRAR EL POST POR ID */
 router.get('/:idPost', async (req, res) => {

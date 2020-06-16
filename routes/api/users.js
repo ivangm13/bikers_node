@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const User = require('../models/user');
+const User = require('../../models/user');
 
 /* GET http://localhost:3000/users */
 router.get('/', (req, res) => {
@@ -42,25 +42,25 @@ router.post('/', async (req, res) => {
   if (result['affectedRows'] === 1) {
     res.json({ success: 'Usuario creado con éxito' })
   } else {
-    res.json({error: 'No se ha creado el usuario'})
+    res.json({ error: 'No se ha creado el usuario' })
   }
 })
 
-router.delete('/:idUsuario',async(req,res)=>{
+router.delete('/:idUsuario', async (req, res) => {
   const result = await User.eliminarUsuario(req.params.idUsuario);
-  if(result['affectedRows']===1){
-    res.json({success: 'Usuario eliminado correctamente'})
-  }else{
-    res.json({error:'No se ha eliminado'})
+  if (result['affectedRows'] === 1) {
+    res.json({ success: 'Usuario eliminado correctamente' })
+  } else {
+    res.json({ error: 'No se ha eliminado' })
   }
 });
 
-router.put('/:idUsuario',async(req,res)=>{
-  const result = await User.modificarUsuario(req.params.idUsuario,req.body);
-  if(result['affectedRows']===1){
-    res.json({success:'Usuario actualizado con éxito'});
-  }else{
-    res.json({error:'No se ha podido actualizar'});
+router.put('/:idUsuario', async (req, res) => {
+  const result = await User.modificarUsuario(req.params.idUsuario, req.body);
+  if (result['affectedRows'] === 1) {
+    res.json({ success: 'Usuario actualizado con éxito' });
+  } else {
+    res.json({ error: 'No se ha podido actualizar' });
   }
 });
 

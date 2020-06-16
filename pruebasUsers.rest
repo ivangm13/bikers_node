@@ -1,26 +1,26 @@
-GET http://localhost:3000/users
+GET http://localhost:3000/api/users
 
 ###
 
 //Buscar por nombre
-GET http://localhost:3000/users/jonh
+GET http://localhost:3000/api/users/jonh
 
 
 ###
 
 //Buscar por username
 
-GET http://localhost:3000/users/alias/javiergarcia
+GET http://localhost:3000/api/users/alias/javiergarcia
 
 ###
 
 //Eliminar usuario por id
-DELETE http://localhost:3000/users/9
+DELETE http://localhost:3000/api/users/9
 
 ###
 
 //Modificar usuario
-PUT http://localhost:3000/users/8
+PUT http://localhost:3000/api/users/8
 Content-Type: application/json
 
 {
@@ -35,7 +35,7 @@ Content-Type: application/json
 }
 ###
  //crear usuario
-POST http://localhost:3000/users
+POST http://localhost:3000/api/users
 Content-Type: application/json
 
  {

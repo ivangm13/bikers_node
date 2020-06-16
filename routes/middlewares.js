@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const moment = require('moment');
 
-const Logeado = require('../models/logeado');
+const Logeado = require('../models/registrado');
 
 const mainRedirect = (req, res, next) => {
     if (req.url == '/') {

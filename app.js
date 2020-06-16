@@ -4,10 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var postRouter = require('./routes/posts');
-var blogRouter = require('./routes/blog');
+var apiRouter = require('./routes/api');
 var { mainRedirect } = require('./routes/middlewares');
 
 //Para leer archivos .env
@@ -27,10 +24,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(mainRedirect);
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/posts', postRouter);
-app.use('/blog', blogRouter);
-
+app.use('/api', apiRouter);
 
 module.exports = app;
