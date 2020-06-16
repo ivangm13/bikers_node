@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const moment = require('moment');
 
-const Logeado = require('../models/registrado');
+const Registrado = require('../models/registrado');
 
 const mainRedirect = (req, res, next) => {
     if (req.url == '/') {
@@ -15,7 +15,7 @@ const checkToken = (req, res, next) => {
 
     //Comprobar si el token viene en la cabecera (req.headers['User-Token] --> si lo tenemos. Con ! delante de req seria si no tenemos)
     if (!req.headers['user-token']) {
-        return res.json({ errorcito: 'Debes incluir el token dentro de la cabecera User-Token' })
+        return res.json({ error: 'Debes incluir el token dentro de la cabecera User-Token' })
     }
     //Comprobar si el token es correcto
     const userToken = req.headers['user-token'];
@@ -24,7 +24,7 @@ const checkToken = (req, res, next) => {
         payload = jwt.verify(userToken, process.env.SECRET_KEY);
     }
     catch (err) {
-        return res.json({ errorcito: 'El token es incorrecto' });
+        return res.json({ error: 'El token es incorrecto' });
     }
 
     //Compruebo si el token esta caducado
@@ -41,9 +41,9 @@ const checkToken = (req, res, next) => {
 
 const isAdmin = async (req, res, next) => {
     //El userId del payload
-    const usuario = await Logeado.getById(req.payload.userId);
+    const usuario = await Registrado.getById(req.payload.userId);
     if (!usuario || usuario.role !== 'ADMIN') {
-        return res.json({ errorcete: 'El acceso a esta ruta solo es para ADMINs' });
+        return res.json({ error: 'El acceso a esta ruta solo es para ADMINs' });
     }
     next();
 };

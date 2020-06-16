@@ -7,14 +7,6 @@ var cors = require('cors');
 var apiRouter = require('./routes/api');
 var { mainRedirect } = require('./routes/middlewares');
 
-<<<<<<< HEAD
-require('dotenv').config();
-
-var app = express();
-
-require('./db').conexion();
-
-=======
 //Para leer archivos .env
 require('dotenv').config();
 
@@ -23,7 +15,6 @@ var app = express();
 
 //Usar las variables/funciones exportadas de archivo db
 require('./db').conexion();
->>>>>>> develop
 
 app.use(cors());
 app.use(logger('dev'));
@@ -34,5 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(mainRedirect);
 app.use('/api', apiRouter);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+    next(createError(404));
+});
 
 module.exports = app;

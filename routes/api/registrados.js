@@ -3,13 +3,13 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const moment = require('moment');
 
-const Logeado = require('../../models/registrado');
+const Registrado = require('../../models/registrado');
 
 router.post('/registro', async (req, res) => {
 
-    req.body.password = bcrypt.hashSync(req.body.password, 10)
+    req.body.password = bcrypt.hashSync(req.body.password, 10);
 
-    const creacion = await Logeado.create(req.body);
+    const creacion = await Registrado.create(req.body);
     if (creacion['affectedRows'] === 1) {
         res.json({ success: 'Se ha creado el cliente' });
     } else {
@@ -18,23 +18,23 @@ router.post('/registro', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-    const logeados = await Usuario.getByEmail(req.body.email);
-    if (logeados) {
+    const registrado = await Registrado.getByEmail(req.body.email);
+    if (registrado) {
         //Existe usuario con este email?
-        const iguales = bcrypt.compareSync(req.body.password, logeados.password);
+        const iguales = bcrypt.compareSync(req.body.password, registrado.password);
         if (iguales) {
-            res.json({ success: 'Login correcto', token: createToken(logeados.id) });
+            res.json({ success: 'Login correcto', token: createToken(registrado.id) });
         } else {
-            res.json({ errorcillo: 'Email o contraseña incorrecto 2' });
+            res.json({ error: 'Email o contraseña incorrecto 2' });
         }
     } else {
         res.json({ error: 'Email o contraseña incorrecto 1' });
     }
 });
 
-function createToken(pLogeadoId) {
+function createToken(pRegistradoId) {
     const payload = {
-        logeadoId: pLogeadoId,
+        registradoId: pRegistradoId,
         createdAt: moment().unix(),
         expiredAt: moment().add(15, 'minutes').unix()
     }

@@ -1,2 +1,21 @@
 ###
 GET http://localhost:3000/api/posts/3
+
+###
+POST http://localhost:3000/api/registrados/registro
+Content-Type: application/json
+
+{
+    "username": "Adolfo",
+    "email": "adolfete@gmail.com",
+    "password": "12345"
+}
+
+###
+POST http://localhost:3000/api/registrados/login
+Content-Type: application/json
+
+{
+    "email": "adolfete@gmail.com",
+    "password": "12345"
+}
