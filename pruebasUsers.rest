@@ -3,7 +3,7 @@ GET http://localhost:3000/api/users
 ###
 
 //Buscar por nombre
-GET https://bikers1.herokuapp.com/api/users/jonh
+GET https://bikers1.herokuapp.com/api/users
 
 
 ###
@@ -38,14 +38,14 @@ Content-Type: application/json
 }
 ###
  //crear usuario
-POST http://localhost:3000/api/users   
+POST https://bikers1.herokuapp.com/api/users   
 Content-Type: application/json
 
  {
      "nombre": "Javiercin",
      "apellidos":"Garia",
      "username":"javiercinin",
-     "email":"javiercin@gmail.com",
+     "email":"javier@gmail.com",
      "password":"123453",
      "ciudad":"Madrid",
      "fecha_nacimiento":"1990-11-07",
@@ -54,12 +54,12 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/api/users/login
+POST https://bikers1.herokuapp.com/api/users/login
 Content-Type: application/json
 
 {
-    "email": "javito@gmail.com",
-    "password": "12345"
+    "email": "ramonita@gmail.com",
+    "password": "1234"
 }
 
 ###

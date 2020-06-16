@@ -41,8 +41,8 @@ router.get('/:nombre', async (req, res) => {
 
 
 router.post('/', async (req, res) => {
-  req.body.password = bcrypt.hashSync(req.body.password,9);
- 
+  req.body.password = bcrypt.hashSync(req.body.password, 9);
+
   const result = await User.crearUsuario(req.body);
   if (result['affectedRows'] === 1) {
     res.json({ success: 'Usuario creado con éxito' })
@@ -70,6 +70,7 @@ router.put('/:idUsuario', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  console.log(req.body.email);
   const registrado = await User.getByEmail(req.body.email);
   if (registrado) {
     //Existe usuario con este email?
