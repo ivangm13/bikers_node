@@ -13,10 +13,10 @@ router.get('/:idPost', async (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
+router.get('/:idUsuario', async (req, res) => {
 
   try {
-    const posts = await Post.getNovedades();
+    const posts = await Post.getNovedades(req.params.idUsuario);
     res.json(posts);
   } catch (err) {
     res.json(err)
