@@ -27,9 +27,9 @@ router.get('/alias/:username', async (req, res) => {
     res.json(err);
   }
 })
-router.get('/id/:username',async (req,res)=>{
+router.get('/id/:email',async (req,res)=>{
   try{
-    const result = await User.getIdByUsername(req.params.username);
+    const result = await User.getIdByEmail(req.params.email);
     res.json(result);
   }catch(err){
     res.json(err);

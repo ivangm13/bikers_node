@@ -26,9 +26,9 @@ const getByUsername = (pUsername) => {
         });
     });
 }
-const getIdByUsername =(pUsername) =>{
+const getIdByEmail =(pEmail) =>{
     return new Promise((resolve,reject)=>{
-        db.query('select id from usuarios where username = ?',[pUsername],(err,rows)=>{
+        db.query('select id from usuarios where email = ?',[pEmail],(err,rows)=>{
             if(err)reject(err);
             resolve(rows);
         })
@@ -83,5 +83,5 @@ module.exports = {
     eliminarUsuario,
     modificarUsuario,
     getByEmail,
-    getIdByUsername
+    getIdByEmail
 }

@@ -64,7 +64,7 @@ Content-Type: application/json
 
 ###
 
-GET https://bikers1.herokuapp.com/api/users/id/ramonita
+GET https://bikers1.herokuapp.com/api/users/id/ramonita@gmail.com
 
 
 
