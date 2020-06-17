@@ -42,7 +42,7 @@ const checkToken = (req, res, next) => {
 const isAdmin = async (req, res, next) => {
     //El userId del payload
     const usuario = await Registrado.getById(req.payload.userId);
-    if (!usuario || usuario.role !== 'ADMIN') {
+    if (!usuario || usuario.rol !== 'admin') {
         return res.json({ error: 'El acceso a esta ruta solo es para ADMINs' });
     }
     next();
