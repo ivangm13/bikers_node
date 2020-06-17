@@ -92,7 +92,7 @@ router.post('/login', async (req, res) => {
     //Existe usuario con este email?
     const iguales = bcrypt.compareSync(req.body.password, registrado.password);
     if (iguales) {
-      res.json({ success: 'Login correcto', token: createToken(registrado.id) });
+      res.json({ success: 'Login correcto', token: createToken(registrado.id) ,rol:registrado.rol});
     } else {
       res.json({ error: 'Email o contraseña incorrecto 2' });
     }
