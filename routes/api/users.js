@@ -20,11 +20,18 @@ router.get('/', (req, res) => {
 router.get('/alias/:username', async (req, res) => {
   console.log(req.params.username)
   try {
-
     const result = await User.getByUsername(req.params.username);
     res.json(result);
   }
   catch (err) {
+    res.json(err);
+  }
+})
+router.get('/id/:username',async (req,res)=>{
+  try{
+    const result = await User.getIdByUsername(req.params.username);
+    res.json(result);
+  }catch(err){
     res.json(err);
   }
 })

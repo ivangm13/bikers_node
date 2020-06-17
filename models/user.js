@@ -26,6 +26,14 @@ const getByUsername = (pUsername) => {
         });
     });
 }
+const getIdByUsername =(pUsername) =>{
+    return new Promise((resolve,reject)=>{
+        db.query('select id from usuarios where username = ?',[pUsername],(err,rows)=>{
+            if(err)reject(err);
+            resolve(rows);
+        })
+    })
+}
 
 const crearUsuario = ({ nombre, apellidos, username, email, fecha_registro = 0, password, ciudad, fecha_nacimiento, imagen }) => {
     return new Promise((resolve, reject) => {
@@ -74,5 +82,6 @@ module.exports = {
     crearUsuario,
     eliminarUsuario,
     modificarUsuario,
-    getByEmail
+    getByEmail,
+    getIdByUsername
 }
