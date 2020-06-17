@@ -13,8 +13,8 @@ router.get('/:idPost', async (req, res) => {
   }
 });
 
-router.get('/:idUsuario', async (req, res) => {
-
+router.get('/home/:idUsuario', async (req, res) => {
+console.log(req.params.idUsuario)
   try {
     const posts = await Post.getNovedades(req.params.idUsuario);
     res.json(posts);
