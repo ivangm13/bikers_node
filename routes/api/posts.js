@@ -13,4 +13,12 @@ router.get('/:idPost', async (req, res) => {
   }
 });
 
+router.get('/', async(req,res)=>{
+  try{
+    const posts = await Post.getNovedades();
+    res.json(posts);
+  }catch(err){
+    res.json({error: 'Error en la peticion'})
+  }
+})
 module.exports = router;

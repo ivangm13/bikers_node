@@ -19,3 +19,9 @@ Content-Type: application/json
     "email": "adolfete@gmail.com",
     "password": "12345"
 }
+
+###
+
+//Obtencion post de los amigos
+
+GET http://bikers1.herokuapp.com/api/posts

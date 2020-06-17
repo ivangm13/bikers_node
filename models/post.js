@@ -8,6 +8,17 @@ const getById = (pPostId) => {
     });
 };
 
+const getNovedades = () =>{
+    return new Promise((resolve,reject)=>{
+        db.query('select posts.* from usuarios inner join amigos on amigos.fk_idUsuario1 = usuarios.id inner join posts on posts.fk_idUsuario = amigos.fk_idUsuario2',(err,rows)=>{
+            if(err) reject(err)
+            resolve(rows);    
+        })
+    })
+
+};
+
 module.exports = {
-    getById
+    getById,
+    getNovedades
 }
