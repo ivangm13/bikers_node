@@ -25,3 +25,7 @@ Content-Type: application/json
 //Obtencion post de los amigos
 
 GET http://bikers1.herokuapp.com/api/posts
+
+###
+
+GET http://bikers1.herokuapp.com/api/posts/1
