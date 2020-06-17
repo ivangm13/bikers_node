@@ -44,6 +44,15 @@ router.get('/:nombre', async (req, res) => {
   catch (err) {
     res.json(err);
   }
+});
+
+router.get('/email/:email',async (req,res)=> {
+  try{
+    const result = await User.getByEmail(req.params.email);
+    res.json(result);
+  }catch(err){
+    res.json(err)
+  }
 })
 
 

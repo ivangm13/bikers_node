@@ -63,8 +63,14 @@ Content-Type: application/json
 }
 
 ###
-
+//Obtener id a partir del email
 GET https://bikers1.herokuapp.com/api/users/id/ramonita@gmail.com
+
+###
+//Obtener el usuario completo a partir del email
+
+GET http://bikers1.herokuapp.com/api/users/email/ramonita@gmail.com
+
 
 
 
