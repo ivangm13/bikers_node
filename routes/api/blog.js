@@ -5,7 +5,7 @@ const moment = require('moment');
 const Blog = require('../../models/blog')
 /* GET users listing. */
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const result = await Blog.getAllBlog();
         result.fecha = moment(result.fecha).format('DD/MM/YYYY');
