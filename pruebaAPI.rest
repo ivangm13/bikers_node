@@ -29,3 +29,6 @@ GET http://bikers1.herokuapp.com/api/posts/home/181
 ###
 
 GET http://bikers1.herokuapp.com/api/posts/1
+
+###
+POST http://localhost:3000/api/blog

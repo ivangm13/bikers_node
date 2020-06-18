@@ -44,8 +44,8 @@ Content-Type: application/json
  {
      "nombre": "Javiercin",
      "apellidos":"Garia",
-     "username":"javiercinin",
-     "email":"javier@gmail.com",
+     "username":"fbhgxnx6",
+     "email":"lucia@gmail.com",
      "password":"123453",
      "ciudad":"Madrid",
      "fecha_nacimiento":"1990-11-07",
