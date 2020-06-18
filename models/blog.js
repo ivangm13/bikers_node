@@ -1,6 +1,6 @@
 const getAllPosts = ()=>{
     return new Promise((resolve,reject)=>{
-        db.query("select * from posts", (err,rows)=>{
+        db.query("select * from blog", (err,rows)=>{
             if(err)reject(err);
             resolve(rows);
         });
