@@ -33,3 +33,7 @@ GET http://bikers1.herokuapp.com/api/posts/1
 ###
 
 GET https://bikers1.herokuapp.com/api/blog
+
+###
+
+GET https://bikers1.herokuapp.com/api/blog/1
