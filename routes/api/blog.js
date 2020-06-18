@@ -6,15 +6,14 @@ const Blog = require('../../models/blog')
 /* GET users listing. */
 
 router.get('/', (req, res) => {
-    Blog.getAllBlog()
-        .then((rows) => {
-            res.json(rows);
-        })
-        .catch(err => {
-            res.json({
-                error: err.message
-            });
-        });
+    try {
+        const result = await Blog.getAllBlog();
+        result.fecha = moment(result.fecha).format('DD/MM/YYYY');
+        res.json(result);
+    }
+    catch (err) {
+        res.json(err)
+    }
 })
 
 router.get('/:idBlog', async (req, res) => {
