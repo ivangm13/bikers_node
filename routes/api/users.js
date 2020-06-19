@@ -46,9 +46,9 @@ router.get('/:nombre', async (req, res) => {
   }
 });
 
-router.get('/email/:email', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    const result = await User.getByEmail(req.params.email);
+    const result = await User.getUserById(req.params.id);
     res.json(result);
   } catch (err) {
     res.json(err)
@@ -97,7 +97,7 @@ router.post('/login', async (req, res) => {
     //Existe usuario con este email?
     const iguales = bcrypt.compareSync(req.body.password, registrado.password);
     if (iguales) {
-      res.json({ success: 'Login correcto', token: createToken(registrado.id) ,rol:registrado.rol});
+      res.json({ success: 'Login correcto', token: createToken(registrado.id), rol: registrado.rol });
     } else {
       res.json({ error: 'Email o contraseña incorrecto 2' });
     }

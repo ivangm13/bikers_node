@@ -26,10 +26,10 @@ const getByUsername = (pUsername) => {
         });
     });
 }
-const getIdByEmail =(pEmail) =>{
-    return new Promise((resolve,reject)=>{
-        db.query('select id from usuarios where email = ?',[pEmail],(err,rows)=>{
-            if(err)reject(err);
+const getIdByEmail = (pEmail) => {
+    return new Promise((resolve, reject) => {
+        db.query('select id from usuarios where email = ?', [pEmail], (err, rows) => {
+            if (err) reject(err);
             resolve(rows);
         })
     })
@@ -64,9 +64,9 @@ const modificarUsuario = (pUsuarioId, { nombre, apellidos, username, email, pass
     });
 }
 
-const getByEmail = (pEmail) => {
+const getUserById = (pId) => {
     return new Promise((resolve, reject) => {
-        db.query('select * from usuarios where email=?', [pEmail], (err, rows) => {
+        db.query('select * from usuarios where id=?', [pId], (err, rows) => {
             if (err) reject(err);
             if (rows.length !== 1) resolve(null);
             resolve(rows[0]);
@@ -82,6 +82,6 @@ module.exports = {
     crearUsuario,
     eliminarUsuario,
     modificarUsuario,
-    getByEmail,
+    getUserById,
     getIdByEmail
 }
