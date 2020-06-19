@@ -12,14 +12,14 @@ module.exports = (formulario) => {
         }
     });
     const mailOptions = {
-        from: `${formulario.body.nombre} <${formulario.body.email}>`,
+        from: `${formulario.body.nombre}`,
         to: 'bikersaskus@gmail.com', // Cambia esta parte por el destinatario
-        subject: formulario.body.asunto,
+        subject: formulario.body.motivoConsulta,
         html: `
-            <h2>Nombre:</h2> ${formulario.body.nombre} <br/>
-            <strong>E-mail:</strong> ${formulario.body.email} <br/>
-            <p>${formulario.body.motivoConsulta}</p>
-            <strong>Mensaje:</strong> ${formulario.body.consulta}
+            <h2>Nombre: ${formulario.body.nombre}</h2> <br/>
+            <strong>E-mail: </strong> ${formulario.body.email} <br/>
+            <strong>Motivo de la consulta: </strong> ${formulario.body.motivoConsulta} <br/>
+            <strong>Mensaje: </strong> ${formulario.body.consulta}
             `
     };
     transporter.sendMail(mailOptions, function (err, info) {
