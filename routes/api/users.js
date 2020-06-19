@@ -27,11 +27,11 @@ router.get('/alias/:username', async (req, res) => {
     res.json(err);
   }
 })
-router.get('/id/:email',async (req,res)=>{
-  try{
+router.get('/id/:email', async (req, res) => {
+  try {
     const result = await User.getIdByEmail(req.params.email);
     res.json(result);
-  }catch(err){
+  } catch (err) {
     res.json(err);
   }
 })
@@ -46,11 +46,11 @@ router.get('/:nombre', async (req, res) => {
   }
 });
 
-router.get('/email/:email',async (req,res)=> {
-  try{
+router.get('/email/:email', async (req, res) => {
+  try {
     const result = await User.getByEmail(req.params.email);
     res.json(result);
-  }catch(err){
+  } catch (err) {
     res.json(err)
   }
 })
@@ -58,8 +58,13 @@ router.get('/email/:email',async (req,res)=> {
 
 router.post('/', async (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, 9);
-
+  // const mail = await User.getByEmail(req.body.email);
   const result = await User.crearUsuario(req.body);
+  // console.log(mail);
+  result.fecha_nacimiento = moment(result.fecha_nacimiento).format('YYYY-MM-DD');
+  // if (mail.email === req.body.email) {
+  //   res.json({ error: 'No se ha creado el usuario' })
+  // }
   if (result['affectedRows'] === 1) {
     res.json({ success: 'Usuario creado con éxito' })
   } else {
