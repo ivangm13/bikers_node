@@ -2,8 +2,8 @@ var express = require('express');
 const nodemailer = require('nodemailer')
 var router = express.Router();
 
-
 module.exports = (formulario) => {
+    console.log(formaulario);
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
