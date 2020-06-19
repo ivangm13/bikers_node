@@ -16,7 +16,7 @@ module.exports = (formulario) => {
         to: 'bikersaskus@gmail.com', // Cambia esta parte por el destinatario
         subject: formulario.body.motivoConsulta,
         html: `
-            <h2>Nombre: ${formulario.body.nombre}</h2> <br/>
+            <h2>Nombre: ${formulario.body.nombre}</h2>
             <strong>E-mail: </strong> ${formulario.body.email} <br/>
             <strong>Motivo de la consulta: </strong> ${formulario.body.motivoConsulta} <br/>
             <strong>Mensaje: </strong> ${formulario.body.consulta}
