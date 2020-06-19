@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer')
 var router = express.Router();
 
 module.exports = (formulario) => {
-    console.log(formulario);
+    console.log(formulario.body);
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -12,14 +12,14 @@ module.exports = (formulario) => {
         }
     });
     const mailOptions = {
-        from: `${formulario.nombre} <${formulario.email}>`,
+        from: `${formulario.body.nombre} <${formulario.body.email}>`,
         to: 'bikersaskus@gmail.com', // Cambia esta parte por el destinatario
-        subject: formulario.asunto,
+        subject: formulario.body.asunto,
         html: `
-            <h2>Nombre:</h2> ${formulario.nombre} <br/>
-            <strong>E-mail:</strong> ${formulario.email} <br/>
-            <p>${formulario.motivoConsulta}</p>
-            <strong>Mensaje:</strong> ${formulario.consulta}
+            <h2>Nombre:</h2> ${formulario.body.nombre} <br/>
+            <strong>E-mail:</strong> ${formulario.body.email} <br/>
+            <p>${formulario.body.motivoConsulta}</p>
+            <strong>Mensaje:</strong> ${formulario.body.consulta}
             `
     };
     transporter.sendMail(mailOptions, function (err, info) {
