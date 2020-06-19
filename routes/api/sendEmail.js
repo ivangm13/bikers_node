@@ -28,4 +28,4 @@ module.exports = (formulario) => {
         else
             console.log(info);
     });
-}
+},router;
