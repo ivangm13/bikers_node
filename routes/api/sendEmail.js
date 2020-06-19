@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer')
 var router = express.Router();
 
 module.exports = (formulario) => {
-    console.log(formaulario);
+    console.log(formulario);
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
