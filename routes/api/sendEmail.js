@@ -12,15 +12,15 @@ module.exports = (formulario) => {
         }
     });
     const mailOptions = {
-        from: `”${formulario.nombre} ” <${formulario.email}>`,
+        from: `${formulario.nombre} <${formulario.email}>`,
         to: 'bikersaskus@gmail.com', // Cambia esta parte por el destinatario
         subject: formulario.asunto,
         html: `
- <h2>Nombre:</h2> ${formulario.nombre} <br/>
- <strong>E-mail:</strong> ${formulario.email} <br/>
- <p>${formulario.motivoConsulta}</p>
- <strong>Mensaje:</strong> ${formulario.consulta}
- `
+            <h2>Nombre:</h2> ${formulario.nombre} <br/>
+            <strong>E-mail:</strong> ${formulario.email} <br/>
+            <p>${formulario.motivoConsulta}</p>
+            <strong>Mensaje:</strong> ${formulario.consulta}
+            `
     };
     transporter.sendMail(mailOptions, function (err, info) {
         if (err)
@@ -28,4 +28,4 @@ module.exports = (formulario) => {
         else
             console.log(info);
     });
-},router;
+}, router;
