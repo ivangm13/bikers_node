@@ -46,7 +46,7 @@ router.get('/:nombre', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/get/:id', async (req, res) => {
   try {
     const result = await User.getUserById(req.params.id);
     res.json(result);
