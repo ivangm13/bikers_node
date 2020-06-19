@@ -92,8 +92,8 @@ router.put('/:idUsuario', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  console.log(req.body.id);
-  const registrado = await User.getUserById(req.body.id);
+  console.log(req.body.email);
+  const registrado = await User.getUserByEmail(req.body.email);
   if (registrado) {
     //Existe usuario con este email?
     const iguales = bcrypt.compareSync(req.body.password, registrado.password);

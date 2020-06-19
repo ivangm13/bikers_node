@@ -37,3 +37,6 @@ GET https://bikers1.herokuapp.com/api/blog
 ###
 
 GET https://bikers1.herokuapp.com/api/blog/1
+
+###
+GET https://bikers1.herokuapp.com/api/users/get/291
