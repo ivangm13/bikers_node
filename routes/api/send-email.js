@@ -23,18 +23,14 @@ router.post('/send-email', async (req, res) => {
     `
    const transporter= nodemailer.createTransport({
        host: 'smtp.gmail.com',
-       port: 465,
+       port: 587,
        secure: false,
        auth: {
            user: 'bikersaskus@gmail.com',
            pass: 'neoland20'
 
-       },
-       tls:{
-           rejectUnauthorized: false 
-           //esto sirve para poder enviar un correo desde cualquier dominio
        }
-
+      
        
    })
    const info = await transporter.sendMail({
