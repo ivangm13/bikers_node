@@ -10,7 +10,9 @@ const Blog = require('../../models/blog')
 router.get('/', async (req, res) => {
     try {
         const result = await Blog.getAllBlog();
-        result.fecha = moment(result.fecha).format('DD/MM/YYYY');
+        for (resultado of result) {
+            resultado.fecha = moment(resultado.fecha).format('DD/MM/YYYY');
+        }
         res.json(result);
     }
     catch (err) {
