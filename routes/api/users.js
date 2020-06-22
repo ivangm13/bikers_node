@@ -17,16 +17,7 @@ router.get('/', (req, res) => {
     });
 });
 
-//Obtener personas para seguir
 
-router.get('/buscar/personas/:idUsuario',async(req,res)=>{
-  try{
-    const result = await User.getPersonas(req.params.idUsuario);
-    res.json(result);
-  }catch(err){
-    res.json(err);
-  }
-})
 /* GET http://localhost:3000/users/username */
 router.get('/alias/:username', async (req, res) => {
   console.log(req.params.username)

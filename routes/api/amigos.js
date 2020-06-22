@@ -41,4 +41,15 @@ router.get('/seguidores/:id',async (req,res)=>{
     }
 });
 
+//Obtener personas para seguir
+
+router.get('/buscar/:idUsuario', async (req, res) => {
+    try {
+        const result = await Amigo.getPersonas(req.params.idUsuario);
+        res.json(result);
+    } catch (err) {
+        res.json(err);
+    }
+})
+
 module.exports = router;

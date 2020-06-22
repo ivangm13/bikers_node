@@ -67,7 +67,7 @@ Content-Type: application/json
 DELETE https://bikers1.herokuapp.com/api/amigos/eliminar/121/141
 
 ###
-GET http://bikers1.herokuapp.com/api/users/buscar/personas/291
+GET http://bikers1.herokuapp.com/api/amigos/buscar/291
 
 
 ###

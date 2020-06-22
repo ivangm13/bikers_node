@@ -8,14 +8,7 @@ const getAll = () => {
     });
 };
 
-const getPersonas = (id) => {
-    return new Promise((resolve, reject) => {
-        db.query('select * from usuarios where id != ?', [id], (err, rows) => {
-            if (err) reject(err),
-                resolve(rows);
-        });
-    });
-}
+
 
 const getByNombre = (pNombre) => {
     return new Promise((resolve, reject) => {
@@ -103,6 +96,5 @@ module.exports = {
     modificarUsuario,
     getUserById,
     getIdByEmail,
-    getUserByEmail,
-    getPersonas
+    getUserByEmail
 }
