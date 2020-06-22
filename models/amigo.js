@@ -18,9 +18,22 @@ const anadirAmigo = (idUsuarioActivo,idUsuario2)=>{
     });
 };
 
-const eliminarAmigo = () =>{
+const eliminarAmigo = (idUsuarioActivo, idUsuario2) =>{
     return new Promise((resolve,reject)=>{
-        db.query('delete from amigos where fk_idUsuario1 = ? and fk_idUsuario2 = ?',[])
+        db.query('delete from amigos where fk_idUsuario1 = ? and fk_idUsuario2 = ?', [idUsuarioActivo, idUsuario2],
+        (err,result)=>{
+            if(err) reject(err);
+            resolve(result);
+        });
+    });
+};
+
+const verSeguidores = (idUsuarioActivo)=>{
+    return new Promise((resolve,reject)=>{
+        db.query('select * from amigos where fk_idUsuario2 = ?', [idUsuarioActivo],(err,rows)=>{
+            if(err) reject(err);
+            resolve(rows);
+        })
     })
 }
 
@@ -28,6 +41,6 @@ const eliminarAmigo = () =>{
 module.exports = {
     getAmigos,
     anadirAmigo,
-    eliminarAmigo
-
+    eliminarAmigo,
+    verSeguidores
 };

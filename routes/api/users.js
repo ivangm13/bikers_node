@@ -67,7 +67,7 @@ router.post('/', async (req, res) => {
   //   res.json({ error: 'No se ha creado el usuario' })
   // }
   if (result['affectedRows'] === 1) {
-    res.json({ success: 'Usuario creado con éxito' })
+    
   } else {
     res.json({ error: 'No se ha creado el usuario' })
   }
