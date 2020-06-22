@@ -14,10 +14,11 @@ router.get('/:id', async (req, res) => {
 
 router.post('/seguir/:id', async (req, res) => {
     try {
-        const result = await Amigo.anadirAmigo(req.params.id, req.body.fk_idUsuario2);
+        const result = await Amigo.anadirAmigo(req.params.id, req.body.id);
         if (result['affectedRows'] === 1)
             res.json({ success: 'Amigo añadido con éxito' });
     } catch (err) {
+        console.log('error en la peticion')
         res.json(err)
     }
 });
