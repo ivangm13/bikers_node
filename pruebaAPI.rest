@@ -40,3 +40,9 @@ GET https://bikers1.herokuapp.com/api/blog/1
 
 ###
 GET https://bikers1.herokuapp.com/api/users/get/291
+
+###
+
+//Obtener amigos del 121
+
+GET https://bikers1.herokuapp.com/api/amigos/121
