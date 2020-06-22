@@ -52,6 +52,21 @@ Content-Type: application/json
      "imagen":"https://i.pinimg.com/originals/b4/a0/b3/b4a0b3c05fc729b0f8a9aeb7f545ad44.jpg"
  }
 
+
+###
+//crear post
+POST  https://bikers1.herokuapp.com/api/post/12
+Content-Type: application/json
+
+{
+    "titulo": "titulo1",
+    "descripcion": "En un lugar de la mancha"
+   
+}
+
+
+
+
 ###
 
 POST https://bikers1.herokuapp.com/api/users/login
@@ -70,6 +85,12 @@ GET https://bikers1.herokuapp.com/api/users/id/ramonita@gmail.com
 //Obtener el usuario completo a partir del email
 
 GET http://bikers1.herokuapp.com/api/users/email/ramonita@gmail.com
+
+###
+
+
+
+
 
 
 

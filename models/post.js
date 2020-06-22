@@ -1,3 +1,13 @@
+const crearPost = ({ titulo, descripcion, id }) => {
+    return new Promise((resolve, reject) => {
+        db.query('insert into posts (titulo, descripcion, fk_idUsuario) values (?,?,?)', [titulo, descripcion, id], (err, result) => {
+            if (err) reject(err);
+            resolve(result);
+        })
+    })
+};
+
+
 const getById = (pPostId) => {
     return new Promise((resolve, reject) => {
         db.query('select * from posts where id=?', [pPostId], (err, rows) => {
@@ -20,5 +30,6 @@ const getNovedades = (pIdUsuario) =>{
 
 module.exports = {
     getById,
-    getNovedades
+    getNovedades,
+    crearPost
 }

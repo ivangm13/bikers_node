@@ -6,7 +6,9 @@ const getAll = () => {
             resolve(rows);
         });
     });
-}
+};
+
+
 
 const getByNombre = (pNombre) => {
     return new Promise((resolve, reject) => {

@@ -40,3 +40,34 @@ GET https://bikers1.herokuapp.com/api/blog/1
 
 ###
 GET https://bikers1.herokuapp.com/api/users/get/291
+
+###
+
+//Obtener amigos del 121 (a quien sigue 121)
+GET https://bikers1.herokuapp.com/api/amigos/121
+
+###
+
+//Ver seguidores de 121
+GET https://bikers1.herokuapp.com/api/amigos/seguidores/121
+
+###
+
+//Añadir amigo (seguir a...) 
+POST https://bikers1.herokuapp.com/api/amigos/seguir/121
+Content-Type: application/json
+
+{
+    "fk_idUsuario2": 141
+}
+
+###
+
+//Eliminar amigo (dejar de seguir a...) 171
+DELETE https://bikers1.herokuapp.com/api/amigos/eliminar/121/141
+
+###
+GET http://bikers1.herokuapp.com/api/amigos/buscar/291
+
+
+###

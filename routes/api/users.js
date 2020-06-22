@@ -16,6 +16,8 @@ router.get('/', (req, res) => {
       res.json({ error: err.message })
     });
 });
+
+
 /* GET http://localhost:3000/users/username */
 router.get('/alias/:username', async (req, res) => {
   console.log(req.params.username)
@@ -67,7 +69,7 @@ router.post('/', async (req, res) => {
   //   res.json({ error: 'No se ha creado el usuario' })
   // }
   if (result['affectedRows'] === 1) {
-    res.json({ success: 'Usuario creado con éxito' })
+    
   } else {
     res.json({ error: 'No se ha creado el usuario' })
   }
