@@ -26,6 +26,6 @@ router.get('/:idBlog', async (req, res) => {
     } catch (err) {
         res.json(err);
     }
-})
+});
 
 module.exports = router;
