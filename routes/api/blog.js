@@ -31,7 +31,7 @@ router.get('/:idBlog', async (req, res) => {
 
 router.post('/create', async (req, res) => {
     try {
-        const post = await Post.crearBlog(req.body);
+        const post = await Blog.crearBlog(req.body);
         res.json(post);
     } catch (err) {
         res.json('Peticion fallida');
