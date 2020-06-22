@@ -8,11 +8,11 @@ const getAll = () => {
     });
 };
 
-const getPersonas = (id) =>{
-    return new Promise((resolve, reject)=>{
-        db.query('select * from usuarios where id != ?',[id],(err,rows)=>{
-            if(err) reject(err),
-            resolve(rows);
+const getPersonas = (id) => {
+    return new Promise((resolve, reject) => {
+        db.query('select * from usuarios where id != ?', [id], (err, rows) => {
+            if (err) reject(err),
+                resolve(rows);
         });
     });
 }
