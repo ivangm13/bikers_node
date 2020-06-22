@@ -4,14 +4,14 @@ var router = express.Router();
 var Post = require('../../models/post');
 
 
-router.post('/:idUsuario', async (req,res)=>{
+router.post('/:idUsuario', async (req, res) => {
   try {
     const post = await Post.crearPost(req.body);
     res.json(post);
   } catch (err) {
     res.json('Peticion fallida');
   }
-})
+});
 
 /* MOSTRAR EL POST POR ID */
 router.get('/:idPost', async (req, res) => {
@@ -24,14 +24,13 @@ router.get('/:idPost', async (req, res) => {
 });
 
 router.get('/home/:idUsuario', async (req, res) => {
-console.log(req.params.idUsuario)
+  console.log(req.params.idUsuario)
   try {
     const posts = await Post.getNovedades(req.params.idUsuario);
     res.json(posts);
   } catch (err) {
     res.json(err)
   }
-})
-
+});
 
 module.exports = router;
