@@ -1,6 +1,6 @@
-const crearPost = ({ titulo, descripcion, pIdUsuario }) => {
+const crearPost = ({ titulo, descripcion, id }) => {
     return new Promise((resolve, reject) => {
-        db.query('insert into posts (titulo, descripcion, fk_idUsuario) values (?,?,?)', [titulo, descripcion, pIdUsuario], (err, result) => {
+        db.query('insert into posts (titulo, descripcion, fk_idUsuario) values (?,?,?)', [titulo, descripcion, id], (err, result) => {
             if (err) reject(err);
             resolve(result);
         })
