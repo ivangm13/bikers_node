@@ -88,7 +88,7 @@ GET http://bikers1.herokuapp.com/api/users/email/ramonita@gmail.com
 
 
 ###
-POST http://bikers1.herokuapp.com/api/blog/create
+POST http://localhost:3000/api/blog/create
 Content-Type: application/json
 
 {

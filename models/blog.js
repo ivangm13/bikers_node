@@ -1,5 +1,3 @@
-const db = require("../db");
-
 const getAllBlog = () => {
     return new Promise((resolve, reject) => {
         db.query("select * from blog", (err, rows) => {
@@ -20,7 +18,7 @@ const getBlogActivo = (blogId) => {
 
 const crearBlog = ({ titulo, texto, fecha, archivo }) => {
     return new Promise((resolve, reject) => {
-        db.query('insert into blog (titulo, texto, fecha, imagen) values(?,?,?,?)', [titulo, texto, fecha, archivo], (err, result) => {
+        db.query('insert into blog (titulo, texto, fecha, imagen) values (?,?,?,?)', [titulo, texto, fecha, archivo], (err, result) => {
             if (err) reject(err);
             resolve(result);
         });
