@@ -6,7 +6,7 @@ const getAmigos = (id) => {
             resolve(rows);
         });
     });
-};
+}; 
 
 const anadirAmigo = (idUsuarioActivo,idUsuario2)=>{
     return new Promise((resolve,reject)=>{
