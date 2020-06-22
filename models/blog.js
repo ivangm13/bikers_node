@@ -18,9 +18,9 @@ const getBlogActivo = (blogId) => {
     });
 };
 
-const crearBlog = ({ titulo, texto, archivo }) => {
+const crearBlog = ({ titulo, texto, fecha, archivo }) => {
     return new Promise((resolve, reject) => {
-        db.query('insert into blog (titulo, texto, fecha, imagen) values(?,?,?,?)', [titulo, texto, new Date(), archivo], (err, result) => {
+        db.query('insert into blog (titulo, texto, fecha, imagen) values(?,?,?,?)', [titulo, texto, fecha, archivo], (err, result) => {
             if (err) reject(err);
             resolve(result);
         });
