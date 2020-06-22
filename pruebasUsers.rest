@@ -88,7 +88,7 @@ GET http://bikers1.herokuapp.com/api/users/email/ramonita@gmail.com
 
 ###
 
-GET http://bikers1.herokuapp.com/api/users/personas/261
+
 
 
 

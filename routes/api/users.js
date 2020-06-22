@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
 //Obtener personas para seguir
 
-router.get('/personas/:idUsuario',async(req,res)=>{
+router.get('/buscar/personas/:idUsuario',async(req,res)=>{
   try{
     const result = await User.getPersonas(req.params.idUsuario);
     res.json(result);
