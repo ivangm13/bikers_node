@@ -38,7 +38,7 @@ const verSeguidores = (idUsuarioActivo)=>{
 }
 const getPersonas = (id) => {
     return new Promise((resolve, reject) => {
-        db.query('select * from usuarios where id != ?', [id], (err, rows) => {
+        db.query('SELECT * FROM heroku_a0adf8f9ec4d669.usuarios where id != ?', [id], (err, rows) => {
             if (err) reject(err),
                 resolve(rows);
         });
