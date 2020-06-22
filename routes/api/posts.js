@@ -6,7 +6,7 @@ var Post = require('../../models/post');
 
 router.post('/:idUsuario', async (req,res)=>{
   try {
-    const post = await Post.crearPost(req.params.idUsuario, req.body);
+    const post = await Post.crearPost(req.body.id, req.body);
     res.json(post);
   } catch (err) {
     res.json('Peticion fallida');
