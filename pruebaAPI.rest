@@ -49,7 +49,7 @@ GET https://bikers1.herokuapp.com/api/amigos/121
 ###
 
 //Ver seguidores de 121
-GET https://bikers1.herokuapp.com/api/amigos/121
+GET https://bikers1.herokuapp.com/api/amigos/seguidores/121
 
 ###
 
@@ -58,10 +58,10 @@ POST https://bikers1.herokuapp.com/api/amigos/seguir/121
 Content-Type: application/json
 
 {
-    "fk_idUsuario2": 171
+    "fk_idUsuario2": 141
 }
 
 ###
 
 //Eliminar amigo (dejar de seguir a...) 171
-DELETE https://bikers1.herokuapp.com/api/amigos/eliminar/121/171
+DELETE https://bikers1.herokuapp.com/api/amigos/eliminar/121/141
