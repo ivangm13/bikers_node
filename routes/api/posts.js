@@ -3,6 +3,16 @@ var router = express.Router();
 
 var Post = require('../../models/post');
 
+
+router.post('/:idUsuario', async (req,res)=>{
+  try {
+    const post = await Post.crearPost(req.body, req.params.idUsuario);
+    res.json(post);
+  } catch (err) {
+    res.json('Peticion fallida');
+  }
+})
+
 /* MOSTRAR EL POST POR ID */
 router.get('/:idPost', async (req, res) => {
   try {
@@ -22,4 +32,6 @@ console.log(req.params.idUsuario)
     res.json(err)
   }
 })
+
+
 module.exports = router;
