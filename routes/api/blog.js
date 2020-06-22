@@ -28,14 +28,13 @@ router.get('/:idBlog', async (req, res) => {
     }
 });
 
-
 router.post('/create', async (req, res) => {
     console.log(req.body);
     try {
         const post = await Blog.crearBlog(req.body);
         res.json(post);
     } catch (err) {
-        res.json('Peticion fallida');
+        res.json(err);
     }
 });
 
