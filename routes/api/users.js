@@ -77,6 +77,7 @@ router.post('/', async (req, res) => {
 
 router.put('/password/:id',async(req,res)=>{
   console.log(req.params.id);
+  console.log(req.body.password)
   req.body.password = bcrypt.hashSync(req.body.password,9);
   console.log(req.body.pasword);
   const result = await User.cambioPassword(req.params.id,req.body.password);
