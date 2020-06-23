@@ -20,7 +20,7 @@ const getById = (pPostId) => {
 
 const getNovedades = (pIdUsuario) => {
     return new Promise((resolve, reject) => {
-        db.query('select posts.* from usuarios inner join amigos on amigos.fk_idUsuario1 = usuarios.id inner join posts on posts.fk_idUsuario = amigos.fk_idUsuario2 where usuarios.id = ?', [pIdUsuario], (err, rows) => {
+        db.query('select (select nombre from usuarios where id=posts.fk_idUsuario)as nombre, posts.* from posts, usuarios, amigos where amigos.fk_idUsuario1 = usuarios.id and posts.fk_idUsuario = amigos.fk_idUsuario2 and usuarios.id = ?', [pIdUsuario], (err, rows) => {
             if (err) reject(err)
             resolve(rows);
         })
