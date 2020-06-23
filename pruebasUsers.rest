@@ -98,6 +98,13 @@ Content-Type: application/json
    "archivo": "https://firebasestorage.googleapis.com/v0/b/bikersapp-44446.appspot.com/o/good_code.jpg?alt=media&token=b87fbb0c-adbf-4e4b-a81e-9df5623082df"
 }
 
+###
+GET http://localhost:3000/api/users/register
+Content-Type: application/json
+
+{    
+    "email":"pepe@gmail.com"
+}
 
 
 
