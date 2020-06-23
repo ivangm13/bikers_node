@@ -17,8 +17,20 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/register', (req, res) => {
+router.post('/register', (req, res) => {
+  console.log(req.body);
   User.getUserByEmail(req.body.email)
+    .then(rows => {
+      res.json(rows);
+    })
+    .catch(err => {
+      res.json({ error: err.message })
+    });
+});
+
+router.post('/username', (req, res) => {
+  console.log(req.body);
+  User.getByUsername(req.body.username)
     .then(rows => {
       res.json(rows);
     })
@@ -71,7 +83,7 @@ router.get('/get/:id', async (req, res) => {
 })
 
 
-router.post('/', async (req, res) => { 
+router.post('/', async (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, 9);
   // const mail = await User.getByEmail(req.body.email);
   const result = await User.crearUsuario(req.body);
@@ -83,16 +95,16 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/password/:id',async(req,res)=>{
+router.put('/password/:id', async (req, res) => {
   console.log(req.params.id);
   console.log(req.body.password1)
-  req.body.password1 = bcrypt.hashSync(req.body.password1,9);
+  req.body.password1 = bcrypt.hashSync(req.body.password1, 9);
   console.log(req.body.pasword1);
-  const result = await User.cambioPassword(req.params.id,req.body.password1);
-  if(result['affectedRows']===1){
-    res.json({success: 'Password actualizada con éxito'})
-  }else{
-    res.json({error:'Fallo en la ruta'});
+  const result = await User.cambioPassword(req.params.id, req.body.password1);
+  if (result['affectedRows'] === 1) {
+    res.json({ success: 'Password actualizada con éxito' })
+  } else {
+    res.json({ error: 'Fallo en la ruta' });
   }
 })
 

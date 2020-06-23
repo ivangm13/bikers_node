@@ -99,11 +99,19 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/api/users/register
+POST http://localhost:3000/api/users/register
 Content-Type: application/json
 
 {    
     "email":"pepe@gmail.com"
+}
+
+###
+POST http://localhost:3000/api/users/username
+Content-Type: application/json
+
+{    
+    "username":"culo"
 }
 
 

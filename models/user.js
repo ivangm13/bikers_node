@@ -24,10 +24,12 @@ const getByUsername = (pUsername) => {
     return new Promise((resolve, reject) => {
         db.query('select * from usuarios where username = ?', [pUsername], (err, rows) => {
             if (err) reject(err);
-            resolve(rows);
+            if (rows.length !== 1) resolve(null);
+            resolve(rows[0]);
         });
     });
 }
+
 const getIdByEmail = (pEmail) => {
     return new Promise((resolve, reject) => {
         db.query('select id from usuarios where email = ?', [pEmail], (err, rows) => {
@@ -86,10 +88,10 @@ const getUserByEmail = (pEmail) => {
     });
 };
 
-const cambioPassword = (pId,pPassword) => {
-    return new Promise((resolve,reject)=>{
-        db.query('update usuarios set password = ? where id = ?', [pPassword, pId],(err,result)=>{
-            if(err) reject(err);
+const cambioPassword = (pId, pPassword) => {
+    return new Promise((resolve, reject) => {
+        db.query('update usuarios set password = ? where id = ?', [pPassword, pId], (err, result) => {
+            if (err) reject(err);
             resolve(result);
         })
     })
