@@ -13,7 +13,7 @@ module.exports = (email) => {
         }
     });
     const mailOptions = {
-        from: 'Bikers',
+        from: transporter.user,
         to: email.body.email, // Cambia esta parte por el destinatario
         subject: 'Restablece tu contraseña',
         html: `
