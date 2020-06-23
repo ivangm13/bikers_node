@@ -72,9 +72,9 @@ GET http://bikers1.herokuapp.com/api/amigos/buscar/291
 
 ###
 
-PUT http://localhost:3000/api/users/password/301
+PUT http://localhost:3000/api/users/password/291
 Content-Type: application/json
 
 {
-    "password":"1234"
+    "password":"12345"
 }

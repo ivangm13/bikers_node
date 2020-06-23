@@ -77,10 +77,10 @@ router.post('/', async (req, res) => {
 
 router.put('/password/:id',async(req,res)=>{
   console.log(req.params.id);
-  console.log(req.body.password)
-  req.body.password = bcrypt.hashSync(req.body.password,9);
-  console.log(req.body.pasword);
-  const result = await User.cambioPassword(req.params.id,req.body.password);
+  console.log(req.body.password1)
+  req.body.password1 = bcrypt.hashSync(req.body.password1,9);
+  console.log(req.body.pasword1);
+  const result = await User.cambioPassword(req.params.id,req.body.password1);
   if(result['affectedRows']===1){
     res.json({success: 'Password actualizada con éxito'})
   }else{
