@@ -7,6 +7,7 @@ const apiBlogRouter = require('./api/blog');
 const apiPostRouter = require('./api/posts');
 const sendEmailRouter = require('./api/sendEmail');
 const apiAmigos = require('./api/amigos');
+const recuperarRouter = require('./api/recuperar');
 
 const { checkToken } = require('./middlewares');
 
@@ -16,5 +17,6 @@ router.use('/blog', apiBlogRouter);
 router.use('/posts', apiPostRouter);
 router.use('/sendEmail', sendEmailRouter);
 router.use('/amigos',apiAmigos);
+router.use('/recuperar',recuperarRouter);
 
 module.exports = router;
