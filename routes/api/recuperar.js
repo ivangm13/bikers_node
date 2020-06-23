@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 module.exports = (email) => {
-    console.log(email);
+    console.log(email.body);
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -14,7 +14,7 @@ module.exports = (email) => {
     });
     const mailOptions = {
         from: 'Bikers',
-        to: email, // Cambia esta parte por el destinatario
+        to: email.body.email, // Cambia esta parte por el destinatario
         subject: 'Restablece tu contraseña',
         html: `
             <h2>Restablecer contraseña.</h2>
