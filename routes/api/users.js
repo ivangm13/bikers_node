@@ -71,7 +71,7 @@ router.get('/get/:id', async (req, res) => {
 })
 
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res) => { 
   req.body.password = bcrypt.hashSync(req.body.password, 9);
   // const mail = await User.getByEmail(req.body.email);
   const result = await User.crearUsuario(req.body);
@@ -80,6 +80,19 @@ router.post('/', async (req, res) => {
     res.json({ success: 'se ha creado' })
   } else {
     res.json({ error: 'No se ha creado el usuario' })
+  }
+});
+
+router.put('/password/:id',async(req,res)=>{
+  console.log(req.params.id);
+  console.log(req.body.password1)
+  req.body.password1 = bcrypt.hashSync(req.body.password1,9);
+  console.log(req.body.pasword1);
+  const result = await User.cambioPassword(req.params.id,req.body.password1);
+  if(result['affectedRows']===1){
+    res.json({success: 'Password actualizada con éxito'})
+  }else{
+    res.json({error:'Fallo en la ruta'});
   }
 })
 

@@ -44,12 +44,12 @@ GET https://bikers1.herokuapp.com/api/users/get/291
 ###
 
 //Obtener amigos del 121 (a quien sigue 121)
-GET https://bikers1.herokuapp.com/api/amigos/121
+GET https://bikers1.herokuapp.com/api/amigos/291
 
 ###
 
 //Ver seguidores de 121
-GET https://bikers1.herokuapp.com/api/amigos/seguidores/121
+GET https://bikers1.herokuapp.com/api/amigos/seguidores/291
 
 ###
 
@@ -71,3 +71,17 @@ GET http://bikers1.herokuapp.com/api/amigos/buscar/291
 
 
 ###
+
+PUT http://localhost:3000/api/users/password/291
+Content-Type: application/json
+
+{
+    "password":"12345"
+}
+###
+ POST http://localhost:3000/api/recuperar
+ Content-Type: application/json
+
+ {
+     "email": "ivangarcia346@gmail.com"
+ }

@@ -86,6 +86,15 @@ const getUserByEmail = (pEmail) => {
     });
 };
 
+const cambioPassword = (pId,pPassword) => {
+    return new Promise((resolve,reject)=>{
+        db.query('update usuarios set password = ? where id = ?', [pPassword, pId],(err,result)=>{
+            if(err) reject(err);
+            resolve(result);
+        })
+    })
+}
+
 
 module.exports = {
     getAll,
@@ -96,5 +105,6 @@ module.exports = {
     modificarUsuario,
     getUserById,
     getIdByEmail,
-    getUserByEmail
+    getUserByEmail,
+    cambioPassword
 }
