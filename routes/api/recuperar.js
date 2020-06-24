@@ -19,7 +19,7 @@ module.exports = (email) => {
         html: `
             <h2>Restablecer contraseña.</h2>
             <p>Para restablecer tu contraseña pulsa en el siguiente enlace y sigue las instrucciones.</p>
-            <a href="http://localhost:4200/recuperar">Restablecer contraseña</a>
+            <a href="https://bikers1.web.app/recuperar">Restablecer contraseña</a>
             `
     };
     transporter.sendMail(mailOptions, function (err, info) {
