@@ -23,19 +23,20 @@ DELETE http://localhost:3000/api/users/9
 ###
 
 //Modificar usuario
-PUT http://localhost:3000/api/users/8
+PUT http://localhost:3000/api/users/291
 Content-Type: application/json
 
 {
-    "nombre": "Juana",
+    "nombre": "pepe",
      "apellidos":"Gonzalez",
-     "username":"juanagonz",
-     "email":"juana@gmail.com",
-     "password":"123457",
-     "ciudad":"Albacete",
+     "username":"pepito",
+     "email":"pepe@gmail.com",
+     "password":"12345",
+     "ciudad":"Madrid",
      "fecha_nacimiento":"1990-11-07",
      "imagen":"https://i.pinimg.com/originals/b4/a0/b3/b4a0b3c05fc729b0f8a9aeb7f545ad44.jpg"
 }
+
 ###
  //crear usuario
 POST https://bikers1.herokuapp.com/api/users   
