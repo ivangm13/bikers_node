@@ -57,10 +57,10 @@ const eliminarUsuario = (pUsuarioId) => {
     })
 }
 
-const modificarUsuario = (pUsuarioId, { nombre, apellidos, username, email, password, ciudad, fecha_nacimiento, archivo }) => {
+const modificarUsuario = (pUsuarioId, { nombre, apellidos, username, email, password, ciudad, fecha_nacimiento, imagen }) => {
     return new Promise((resolve, reject) => {
         db.query('update usuarios set nombre =?, apellidos=?,username=?,email=?, password=?,ciudad=?,fecha_nacimiento=?,imagen=? where id=?',
-            [nombre, apellidos, username, email, password, ciudad, fecha_nacimiento, archivo, pUsuarioId],
+            [nombre, apellidos, username, email, password, ciudad, fecha_nacimiento, imagen, pUsuarioId],
             (err, result) => {
                 if (err) reject(err);
                 resolve(result);
